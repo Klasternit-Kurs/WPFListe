@@ -1,0 +1,22 @@
+﻿<Window x:Class="WPFListe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFListe"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+	<DockPanel>
+		<StackPanel DockPanel.Dock="Bottom">
+			<UniformGrid Columns="2">
+				<Label FontSize="24">Ime:</Label>
+				<TextBox Text="{Binding Ime, UpdateSourceTrigger=Explicit}" FontSize="24"/>
+				<Label FontSize="24">Prezime:</Label>
+				<TextBox Text="{Binding Prezime, UpdateSourceTrigger=Explicit}" FontSize="24"/>
+			</UniformGrid>
+			<Button FontSize="24" Click="Unos" >Unos</Button>
+			<Button FontSize="24" Click="Obrisi">Brisanje</Button>
+		</StackPanel>
+		<DataGrid Name="Imenik" ColumnWidth="*" IsReadOnly="True" FontSize="24" SelectionChanged="Selekcija"/>
+	</DockPanel>
+</Window>
