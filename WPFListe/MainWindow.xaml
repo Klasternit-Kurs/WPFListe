@@ -8,13 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
 	<DockPanel>
 		<StackPanel DockPanel.Dock="Bottom">
-			<UniformGrid Columns="2">
-				<Label FontSize="24">Ime:</Label>
-				<TextBox Text="{Binding Ime, UpdateSourceTrigger=Explicit}" FontSize="24"/>
-				<Label FontSize="24">Prezime:</Label>
-				<TextBox Text="{Binding Prezime, UpdateSourceTrigger=Explicit}" FontSize="24"/>
-			</UniformGrid>
+			
 			<Button FontSize="24" Click="Unos" >Unos</Button>
+			<Button FontSize="24" Click="Izmena">Izmena</Button>
 			<Button FontSize="24" Click="Obrisi">Brisanje</Button>
 		</StackPanel>
 		<DataGrid Name="Imenik" ColumnWidth="*" IsReadOnly="True" FontSize="24" SelectionChanged="Selekcija"/>

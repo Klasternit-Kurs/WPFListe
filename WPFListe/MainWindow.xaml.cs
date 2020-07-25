@@ -34,20 +34,24 @@ namespace WPFListe
 
 		private void Unos(object sender, RoutedEventArgs e)
 		{
-			BindingGroup.CommitEdit();
-			//(Osoba)DataContext izaziva exception ako nije u stanju da razume DataContext kao Osobu
-			//DataContext as Osoba stvara null vrednost ako nije u stanju da razume DataContext kao Osobu
+			Editor ed = new Editor();
+			ed.Owner = this;
 			
-			if (DataContext is Osoba o)
+			if (ed.ShowDialog().Value)
 			{
-				//is, ovaj gore u ifu :), radi iducu liniju kao II korak
-				//Osoba o = DataContext as Osoba;
-				if (!Osobe.Contains(o))
-				{
-					Osobe.Add(o);
-				}
+				Osobe.Add(ed.DataContext as Osoba);
 			}
-			DataContext = new Osoba();
+		}
+
+		private void Izmena(object o, RoutedEventArgs zklj)
+		{
+			if (Imenik.SelectedItem != null)
+			{
+				Editor ed = new Editor();
+				ed.Owner = this;
+				ed.DataContext = Imenik.SelectedItem;
+				ed.ShowDialog();
+			}
 		}
 
 		private void Obrisi(object sender, RoutedEventArgs e)
